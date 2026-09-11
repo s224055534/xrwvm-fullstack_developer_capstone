@@ -1,64 +1,172 @@
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dealerships — Home</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="static/style.css">
   <link rel="stylesheet" href="static/bootstrap.min.css">
-<script>
 
-const logout = async (e) => {
-//Include the code for logout here.
-};
+  <style>
+    :root{
+      --teal:#1fc2c2;
+      --teal-dark:#149c9c;
+      --teal-darker:#0b3b3b;
+      --bg:#eef2f3;
+    }
+    body{
+      font-family:'Segoe UI', Roboto, Arial, sans-serif;
+      background:var(--bg);
+      color:#1e2a30;
+    }
 
-let checkSession = ()=>{
-  let curr_user = sessionStorage.getItem("username");
+    /* Navbar - matches About Us / Contact Us */
+    .navbar-brand-custom{
+      font-size:1.6rem;
+      font-weight:700;
+      color:var(--teal-darker) !important;
+      margin:0;
+      padding-right:2rem;
+    }
+    .navbar-custom{
+      background-color:var(--teal) !important;
+    }
+    .navbar-custom .nav-link{
+      color:var(--teal-darker) !important;
+      font-weight:600;
+      opacity:.85;
+      font-size:1rem;
+    }
+    .navbar-custom .nav-link:hover,
+    .navbar-custom .nav-link.active{
+      opacity:1;
+    }
+    .navbar-custom .nav-link.active{
+      text-decoration:underline;
+      text-underline-offset:6px;
+    }
 
-  if (curr_user && curr_user !== "") {
-    document.getElementById("loginlogout").innerHTML = 
-    '<span class="homepage_links">' + curr_user +'</span>' +
-    '<a class="homepage_links" onclick="logout()" href="/">Logout</a>'
-  } else {
-    document.getElementById("loginlogout").innerHTML = 
-    '<a class="homepage_links" href="/login">Login</a>'+
-    '<a class="homepage_links"  href="/register">Register</a>'
-  }
- }
-</script>
+    /* Scoped override so the shared style.css .homepage_links padding:25%
+       doesn't blow out the layout, and so it matches the teal palette */
+    .home-page .homepage_links{
+      padding:0 0 0 1.25rem;
+      font-size:1rem;
+      color:var(--teal-darker);
+      text-decoration:none;
+      font-weight:600;
+    }
+    .home-page .homepage_links:hover{
+      text-decoration:underline;
+    }
+
+    /* Hero card - matches the rounded, shadowed card look used site-wide */
+    .home-page .hero-card{
+      border:1px solid #e3e8ea;
+      border-radius:1.75rem;
+      box-shadow:0 10px 30px rgba(20,60,60,.08);
+      background:#fff;
+      overflow:hidden;
+      width:100%;
+      max-width:760px;
+      margin:3rem auto;
+    }
+    .home-page .hero-card img{
+      width:100%;
+      height:340px;
+      object-fit:cover;
+    }
+    .home-page .hero-card .banner{
+      padding:2.5rem 2rem;
+      text-align:center;
+    }
+    .home-page .hero-card .banner h5{
+      font-size:1.4rem;
+      font-weight:700;
+      margin-bottom:1.25rem;
+    }
+    .home-page .hero-card .btn-teal{
+      background-color:var(--teal);
+      border-color:var(--teal);
+      color:var(--teal-darker);
+      font-weight:700;
+      border-radius:.6rem;
+      padding:.65rem 2rem;
+    }
+    .home-page .hero-card .btn-teal:hover{
+      background-color:var(--teal-dark);
+      border-color:var(--teal-dark);
+      color:#fff;
+    }
+
+    footer{
+      background-color:var(--teal-darker);
+      color:#cfeeee;
+    }
+  </style>
+
+  <script>
+    const logout = async (e) => {
+    //Include the code for logout here.
+    };
+
+    let checkSession = ()=>{
+      let curr_user = sessionStorage.getItem("username");
+
+      if (curr_user && curr_user !== "") {
+        document.getElementById("loginlogout").innerHTML =
+        '<span class="homepage_links">' + curr_user +'</span>' +
+        '<a class="homepage_links" onclick="logout()" href="/">Logout</a>'
+      } else {
+        document.getElementById("loginlogout").innerHTML =
+        '<a class="homepage_links" href="/login">Login</a>'+
+        '<a class="homepage_links"  href="/register">Register</a>'
+      }
+     }
+  </script>
 </head>
-<body onload="checkSession()">
-<nav class="navbar navbar-expand-lg navbar-light" style="background-color:darkturquoise; height: 1in;">
-  <div class="container-fluid">
-    <h2 style="padding-right: 5%;">Dealerships</h2>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarText">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link active" style="font-size: larger;" aria-current="page" href="#">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" style="font-size: larger;" href="/about">About Us</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" style="font-size: larger;" href="/contact">Contact Us</a>
-        </li>
-      </ul>
-      <span class="navbar-text">
-        <div class="loginlink" id="loginlogout">
-        </div>
+<body class="home-page" onload="checkSession()">
+
+  <nav class="navbar navbar-expand-lg navbar-custom px-4 py-3">
+    <div class="container-fluid">
+      <span class="navbar-brand-custom">Dealerships</span>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarText">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0 gap-md-4">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/about">About Us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/contact">Contact Us</a>
+          </li>
+        </ul>
+        <span class="navbar-text">
+          <div class="loginlink" id="loginlogout"></div>
         </span>
+      </div>
     </div>
-  </div>
-</nav>
-<div style="display: flex;flex-direction: column;">
-<div class="card" style="width: 50%;margin-top: 50px;align-self: center;">
-  <img src="static/car_dealership.jpg" class="card-img-top" alt="...">
-  <div class="banner">
-    <h5>Welcome to our Dealerships!</h5>
-    <a href="/dealers" class="btn" style="background-color: aqua;margin:10px">View Dealerships</a>
-  </div>
-</div>
-</div>
+  </nav>
+
+  <main class="container">
+    <div class="hero-card">
+      <img src="static/car_dealership.jpg" alt="Car dealership showroom">
+      <div class="banner">
+        <h5>Welcome to our Dealerships!</h5>
+        <a href="/dealers" class="btn btn-teal">View Dealerships</a>
+      </div>
+    </div>
+  </main>
+
+  <footer class="py-4 mt-5">
+    <div class="container text-center small">
+      &copy; 2026 Dealerships. All rights reserved.
+    </div>
+  </footer>
+
 </body>
 </html>

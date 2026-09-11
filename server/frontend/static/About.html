@@ -1,74 +1,225 @@
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us — Dealerships</title>
   <!-- Link the style sheet here -->
   <link rel="stylesheet" href="/static/style.css">
   <link rel="stylesheet" href="/static/bootstrap.min.css">
 
+  <style>
+    :root{
+      --teal:#1fc2c2;
+      --teal-dark:#149c9c;
+      --teal-darker:#0b3b3b;
+      --link-bold:#16418f;
+      --bg:#eef2f3;
+    }
+    body{
+      font-family:'Segoe UI', Roboto, Arial, sans-serif;
+      background:var(--bg);
+      color:#1e2a30;
+    }
+
+    /* Navbar - matches Contact Us page */
+    .navbar-brand-custom{
+      font-size:1.6rem;
+      font-weight:700;
+      color:var(--teal-darker) !important;
+      margin:0;
+      padding-right:2rem;
+    }
+    .navbar-custom{
+      background-color:var(--teal) !important;
+    }
+    .navbar-custom .nav-link{
+      color:var(--teal-darker) !important;
+      font-weight:600;
+      opacity:.85;
+      font-size:1rem;
+    }
+    .navbar-custom .nav-link:hover,
+    .navbar-custom .nav-link.active{
+      opacity:1;
+    }
+    .navbar-custom .nav-link.active{
+      text-decoration:underline;
+      text-underline-offset:6px;
+    }
+
+    /* Scope overrides to this page so the shared style.css .card rules
+       (grey border, flex-column) don't fight the Bootstrap/teal look */
+    .about-page .page-card{
+      border:1px solid #e3e8ea;
+      border-radius:1.75rem;
+      box-shadow:0 10px 30px rgba(20,60,60,.08);
+      background:#fff;
+      overflow:hidden;
+    }
+
+    .about-page .banner{
+      padding:3rem 2rem 2rem;
+      text-align:center;
+    }
+    .about-page .banner h1{
+      font-weight:700;
+      margin-bottom:.75rem;
+    }
+    .about-page .banner p{
+      max-width:640px;
+      margin:0 auto;
+      color:#4b5a60;
+    }
+
+    .about-page .team-section{
+      border-top:1px solid #e3e8ea;
+      padding:2.5rem 2rem 3rem;
+    }
+    .about-page .team-section h2{
+      font-size:1.25rem;
+      font-weight:700;
+      margin-bottom:1.5rem;
+      text-align:center;
+    }
+
+    .about-page .team-card{
+      border:1px solid #e3e8ea;
+      border-radius:1rem;
+      overflow:hidden;
+      height:100%;
+      transition:box-shadow .15s ease;
+    }
+    .about-page .team-card:hover{
+      box-shadow:0 8px 20px rgba(20,60,60,.10);
+    }
+    .about-page .team-card img{
+      width:100%;
+      height:220px;
+      object-fit:cover;
+    }
+    .about-page .team-card .name{
+      background-color:var(--teal);
+      color:var(--teal-darker);
+      font-weight:700;
+      text-align:center;
+      margin:0;
+      padding:.6rem;
+      font-size:1.05rem;
+    }
+    .about-page .team-card .role{
+      text-align:center;
+      color:var(--link-bold);
+      font-weight:600;
+      font-size:.9rem;
+      margin:.75rem 0 .25rem;
+    }
+    .about-page .team-card .bio{
+      color:#4b5a60;
+      font-size:.9rem;
+      padding:0 1rem;
+      margin-bottom:.75rem;
+    }
+    .about-page .team-card .email{
+      text-align:center;
+      font-size:.85rem;
+      padding-bottom:1rem;
+    }
+    .about-page .team-card .email a{
+      color:#1a56db;
+      text-decoration:none;
+    }
+    .about-page .team-card .email a:hover{
+      text-decoration:underline;
+    }
+
+    footer{
+      background-color:var(--teal-darker);
+      color:#cfeeee;
+    }
+  </style>
 </head>
-<div>
-  <nav class="navbar navbar-expand-lg navbar-light" style="background-color:darkturquoise; height: 1in;">
+<body class="about-page">
+
+  <nav class="navbar navbar-expand-lg navbar-custom px-4 py-3">
     <div class="container-fluid">
-      <h2 style="padding-right: 5%;">Dealerships</h2>
+      <span class="navbar-brand-custom">Dealerships</span>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarText">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0 gap-md-4">
           <li class="nav-item">
-            <a class="nav-link" style="font-size: larger;" aria-current="page" href="/">Home</a>
+            <a class="nav-link" aria-current="page" href="/">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" style="font-size: larger;" href="/about">About Us</a>
+            <a class="nav-link active" href="/about">About Us</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" style="font-size: larger;" href="/contact">Contact Us</a>
+            <a class="nav-link" href="/contact">Contact Us</a>
           </li>
         </ul>
       </div>
     </div>
   </nav>
-  
-    <div class="card" style="width: 80%;margin: auto; margin-top:5%;">
-      <div class="banner" name="about-header">
-      <!-- Insert header information here -->
-      <h1>About Us</h1>
-      Welcome to Best Cars dealership, home to the best cars in North America. We deal in selling domestic and imported cars at reasonable prices.
-    
-      </div>
-      <div style="display: flex;flex-direction: row; margin:auto">
-      <div class="card" style="width: 30%;">
-        <img class="card-img-top" src="https://tse4.mm.bing.net/th/id/OIP.i-10MMecOhZwON3XhGCY4wHaHa?r=0&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Card image">
-        <div class="card-body">
-          <p class="title">John Smith</p>
-          <p>General Manager</p>
-          <p class="card-text">Some text that explains the person1 in about 2 short sentences</p>
-          <p>johnsmith@example.com</p>
-        </div>
-      </div>
 
-      <div class="card" style="width: 30%;">
-        <img class="card-img-top" src="https://tse2.mm.bing.net/th/id/OIP.jNf2wPrOdRpMv1NfNpgG5AHaEy?r=0&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Card image">
-        <div class="card-body">
-          <p class="title">Sarah Johnson</p>
-          <p>Sales Manager</p>
-          <p class="card-text">Sarah helps customers find the right vehicle for their needs and budget. She also leads the sales team and ensures a smooth buying experience.</p>
-          <p>sarahjohnson@example.com</p>
-        </div>
-      </div>
+  <main class="container my-5">
+    <div class="row justify-content-center">
+      <div class="col-lg-10">
+        <div class="page-card">
 
-      <div class="card" style="width: 30%;">
-        <img class="card-img-top" src="https://tse1.mm.bing.net/th/id/OIP.Hsf-HUPO0-9GA7LPz7_XiQHaE7?r=0&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Card image">
-        <div class="card-body">
-          <p class="title">Michael Brown</p>
-          <p>Finance Manager</p>
-          <p class="card-text">Michael assists customers with financing and payment options. He makes the vehicle purchasing process simple and stress-free.</p>
-          <p>michaelbrown@example.com</p>
+          <div class="banner" name="about-header">
+            <h1>About Us</h1>
+            <p>Welcome to Best Cars dealership, home to the best cars in North America. We deal in selling domestic and imported cars at reasonable prices.</p>
+          </div>
+
+          <div class="team-section">
+            <h2>Meet the team</h2>
+            <div class="row g-4 justify-content-center">
+
+              <div class="col-md-4">
+                <div class="team-card">
+                  <img src="https://tse4.mm.bing.net/th/id/OIP.i-10MMecOhZwON3XhGCY4wHaHa?r=0&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Portrait of John Smith">
+                  <p class="name">John Smith</p>
+                  <p class="role">General Manager</p>
+                  <p class="bio">John leads the dealership and ensures all departments work together efficiently. He is committed to delivering excellent customer service and driving business growth.</p>
+                  <p class="email"><a href="mailto:johnsmith@example.com">johnsmith@example.com</a></p>
+                </div>
+              </div>
+
+              <div class="col-md-4">
+                <div class="team-card">
+                  <img src="https://tse2.mm.bing.net/th/id/OIP.jNf2wPrOdRpMv1NfNpgG5AHaEy?r=0&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Portrait of Sarah Johnson">
+                  <p class="name">Sarah Johnson</p>
+                  <p class="role">Sales Manager</p>
+                  <p class="bio">Sarah helps customers find the right vehicle for their needs and budget. She also leads the sales team and ensures a smooth buying experience.</p>
+                  <p class="email"><a href="mailto:sarahjohnson@example.com">sarahjohnson@example.com</a></p>
+                </div>
+              </div>
+
+              <div class="col-md-4">
+                <div class="team-card">
+                  <img src="https://tse1.mm.bing.net/th/id/OIP.Hsf-HUPO0-9GA7LPz7_XiQHaE7?r=0&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Portrait of Michael Brown">
+                  <p class="name">Michael Brown</p>
+                  <p class="role">Finance Manager</p>
+                  <p class="bio">Michael assists customers with financing and payment options. He makes the vehicle purchasing process simple and stress-free.</p>
+                  <p class="email"><a href="mailto:michaelbrown@example.com">michaelbrown@example.com</a></p>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
         </div>
       </div>
     </div>
-    </div>
-    </div>
-    
-</div>
+  </main>
 
+  <footer class="py-4 mt-5">
+    <div class="container text-center small">
+      &copy; 2026 Dealerships. All rights reserved.
+    </div>
+  </footer>
+
+  <script src="/static/bootstrap.bundle.min.js"></script>
+</body>
 </html>
