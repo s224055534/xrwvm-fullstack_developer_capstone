@@ -1,8 +1,9 @@
 from django.db import models
-from django.utils.timezone import now
 from django.core.validators import MaxValueValidator, MinValueValidator
 
 class CarMake(models.Model):
+
+
     name = models.CharField(max_length=100)
     description = models.TextField()
     country = models.CharField(max_length=100, blank=True)
@@ -11,6 +12,8 @@ class CarMake(models.Model):
         return self.name
 
 class CarModel(models.Model):
+
+
     car_make = models.ForeignKey(CarMake, on_delete=models.CASCADE)
     name = models.CharField(max_length=100)
 
